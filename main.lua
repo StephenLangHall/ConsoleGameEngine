@@ -1,26 +1,24 @@
 return {
   ["Main"]=function()
     Clear("black")
-	  local Mex=10
-	  local Mey=10
 	  for n,v in pairs(base.Things) do
-  		v.draw()
+  		v:draw()
 	  end
   end,
   ["Things"]={
 	  ["Me"]={
 		  ["x"]=10,
 		  ["y"]=10,
-		  ["draw"]=(function()
-		  	local Mex=base.Things.Me.x
-			  local Mey=base.Things.Me.y
-			  Rectangle(Mex, Mey, 2, 6, "white", 1)
-			  Pixel(Mex-1, Mey+2, "white")
-			  Pixel(Mex+3, Mey+2, "white")
-			  Pixel(Mex,   Mey+1, "green")
-			  Pixel(Mex+2, Mey+1, "green")
-			  Pixel(Mex,   Mey+7, "white")
-			  Pixel(Mex+2, Mey+7, "white")
+		  ["draw"]=(function(self)
+		  	local x=self.x
+				local y=self.y
+				Rectangle(x, y, 2, 6, "white", 1)
+				Pixel(x-1, y+2, "white")
+				Pixel(x+3, y+2, "white")
+				Pixel(x,   y+1, "green")
+				Pixel(x+2, y+1, "green")
+				Pixel(x,   y+7, "white")
+				Pixel(x+2, y+7, "white")
 		  end),
 	  },
   },
